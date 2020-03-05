@@ -1,3 +1,8 @@
+# Introduction
+This was a homework assignment that I did for CS3600 - Introduction to Security at Missouri S&T (FALL 2018).  Below is the instructions and setup for the assignment.
+
+
+
 # Story
 You suspect your boss is embezzling money, and you would really like to obtain your boss's password to gather evidence.
 What you do with it is up to you...
@@ -11,34 +16,15 @@ You can't just use the password at any terminal though, since someone might noti
 You may also discover that the system administrator's (sysadmin) password is also ironically weak.
 Your internet research has discovered the following links about how to perform your task (not all of these will be critical, depending on which tools and methods you choose):
 
-# Your internet research
-Sudo and passwords
-* http://www.yourownlinux.com/2015/08/etc-shadow-file-format-in-linux-explained.html
-* https://www.debian.org/doc/manuals/debian-handbook/sect.user-group-databases.en.html
-* https://wiki.debian.org/sudo
-* https://unix.stackexchange.com/questions/86748/how-to-properly-configure-sudoers-file-on-debian-wheezy
-* https://www.debian.org/doc/manuals/debian-reference/ch04.en.html#_managing_account_and_password_information
-* https://www.linuxquestions.org/questions/linux-general-1/execute-command-as-different-user-63197/
 
-Bash and sudo
-* https://stackoverflow.com/questions/11955298/use-sudo-with-password-as-parameter
-* https://superuser.com/questions/67765/sudo-with-password-in-one-command-line
-
-Bash and executing system bash commands in python:
-* https://docs.python.org/3.5/library/subprocess.html#subprocess.run
-* http://www.linuxcommand.org/lc3_learning_the_shell.php
-* http://www.linuxcommand.org/lc3_writing_shell_scripts.php
-
-John and Hashcat
-* https://www.samsclass.info/123/proj10/p12-hashcat.htm
-* https://www.blackmoreops.com/2015/11/10/cracking-password-in-kali-linux-using-john-the-ripper/
 
 # Overview
-1. Get password of yourboss using a python script and nothing other than basic crypto tools (65 pts)
-2. After getting password, then fix permissions on the shadow file (debian secure defaults) (10 pts)
-3. Get yourbuddy's password by using John or Hashcat (already installed in Kali). Hint: this will require brute force, but the password is short (10 pts)
-4. Get password of sysadmin (using any method) (5 pts)
-5. Clear your tracks, if you left any (10 pts)
+1. Get password of yourboss using a python script and nothing other than basic crypto tools
+2. After getting password, then fix permissions on the shadow file (debian secure defaults)
+3. Get yourbuddy's password by using John or Hashcat (already installed in Kali). Hint: this will require brute force, but the password is short
+4. Get password of sysadmin (using any method)
+5. Clear your tracks, if you left any
+
 
 # Setup
 In a fresh install of your Kali VM (updated to latest software via apt-get), run this to setup the assignment:
@@ -66,16 +52,6 @@ sudo useradd yourbuddy -m -p '$6$tvsAYmsV$a5dekP.yLet1VJa51LlYc6Gt/z0Kopq8yNldXP
 sudo chmod a+rwx /etc/shadow
 ```
 
-# Hints
-* You will need to make bash/system calls in python3; the best way to do this is subprocess.run
-* You will want to take and refresh VM snaphshots for testing your code repeatedly
-* The sudo password for the tempworker must be typed automatically for your script.
-We will NOT provide any keyboard input during grading running.
-
-# What to submit
-* funandgames.py
-* screenshot of how you ran your script
-* screenshot of the results produced by your script
 
 # Running
 We will run your script as follows (in the home directory of a random new user we have created without sudo permissions:
@@ -83,15 +59,3 @@ We will run your script as follows (in the home directory of a random new user w
 `$ python3 funandgames.py`
 
 Note: Putting a space before a command means it does not get entered into bash history, if the environmental variable, $HISTCONTROL=ignoreboth, as it is in Debian.
-
-# Password output:
-* You can check your program output by doing this (which is how we will run it)
-
-    `$ ./fundandgames.py >myout.txt  # Put space before command`
-
-    `$ diff myout.txt example-output.txt`
-
-* Make sure you don't have newline differences with this file. 
-* To make sure there are no differences (other than the passwords)
-* No output other than the system changes themselves should be produced for the other assignment components (like the permissions changes).
-
