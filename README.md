@@ -1,5 +1,5 @@
 # Introduction
-This was a homework assignment that I did for CS3600 - Introduction to Security at Missouri S&T (FALL 2018).  Below is the instructions and setup for the assignment.
+This was a homework assignment that I did for CS3600 - Introduction to Security at Missouri S&T (FALL 2018).  Below is the instructions and setup given by the professor.
 
 
 
